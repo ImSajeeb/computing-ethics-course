@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificate of Completion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="certificate-page">
+        
+        <!-- THE CERTIFICATE DESIGN -->
+        <div class="certificate-card" id="printableArea">
+            <div class="cert-logo">🎓</div>
+            <h1 class="cert-title">Certificate of Completion</h1>
+            <p class="cert-subtitle">This is proudly awarded to</p>
+            
+            <!-- Injected by JavaScript -->
+            <h2 class="cert-name" id="certificateName">Student Name</h2>
+            
+            <p class="cert-subtitle" style="margin-bottom: 20px;">for successfully completing the course</p>
+            <h3 class="cert-course">Computing, Ethics, and Society Foundations</h3>
+            
+            <div class="cert-footer">
+                <div class="cert-signature">
+                    <strong>Course Instructor</strong><br>
+                    <span>LMS Platform Verification</span>
+                </div>
+                <div class="cert-date">
+                    <strong>Date Completed</strong><br>
+                    <span id="completionDate">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIONS (Hidden during print) -->
+        <div class="print-btn-container">
+            <button class="btn btn-prev" onclick="window.location.href='index.html'">Back to Home</button>
+            <button class="btn btn-action" onclick="window.print()" style="background: #eab308; color: #000;">🖨️ Print / Save as PDF</button>
+        </div>
+
+    </section>
+
+    <script>
+        // 1. Get the Student Name from Storage
+        const studentName = localStorage.getItem('studentName') || 'Dedicated Learner';
+        document.getElementById('certificateName').innerText = studentName;
+
+        // 2. Automatically generate Today's Date
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('completionDate').innerText = today.toLocaleDateString('en-US', options);
+    </script>
+
+</body>
+</html>

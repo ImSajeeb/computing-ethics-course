@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Computing Ethics Course</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav class="navbar">
+    <!-- LEFT SIDE: Logo & Title -->
+    <div class="nav-left">
+        <div class="nav-logo-icon">✦</div>
+        <a href="index.html" class="home-link">Computing Ethics</a>
+    </div>
+
+    <!-- RIGHT SIDE: Progress & Profile -->
+    <div class="nav-right">
+        <div class="nav-progress-group">
+            <span class="progress-label">Progress</span>
+            <div class="mini-progress-container">
+                <div class="mini-progress-bar" id="miniProgressBar"></div>
+            </div>
+            <span id="miniProgressText" class="progress-text-glow">0%</span>
+        </div>
+        
+        <!-- Auto-generates the user's initial here -->
+        <div class="user-avatar" id="navAvatar">?</div>
+    </div>
+</nav>
+
+    <div class="container">
+        <!-- Sidebar is generated automatically here -->
+        <aside class="sidebar" id="dynamic-sidebar"></aside>
+
+        <main class="content">
+
+            <!-- ============================================== -->
+            <!-- LESSON 1: MODULE 1 VIDEO 1                     -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-1">
+                <h1>Social Media Impact on Youth: Part 1</h1>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1"></iframe>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-next" onclick="markComplete(1)">Mark Complete & Next</button>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- LESSON 2: MODULE 1 VIDEO 2                     -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-2">
+                <h1>Social Media Impact on Youth: Part 2</h1>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2"></iframe>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-prev" onclick="showLesson(1)">Previous</button>
+                    <button class="btn btn-next" onclick="markComplete(2)">Mark Complete & Next</button>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- LESSON 3: MODULE 1 READING                     -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-3">
+                <h1>Social Media's Negative Impact on Teen Health</h1>
+                <div class="lesson-card">
+                    <h2>Required Reading</h2>
+                    <p>Read the linked article detailing screen time statistics.</p>
+                    <a href="https://example.com" target="_blank" class="btn btn-action">Open Article</a>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-prev" onclick="showLesson(2)">Previous</button>
+                    <button class="btn btn-next" onclick="markComplete(3)">Mark Complete & Next</button>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- LESSON 4: MODULE 2 VIDEO                       -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-4">
+                <h1>Misinformation: Politically-related Part 1</h1>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3"></iframe>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-prev" onclick="showLesson(3)">Previous</button>
+                    <button class="btn btn-next" onclick="markComplete(4)">Mark Complete & Next</button>
+                </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- LESSON 5: MODULE 2 READING                     -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-5">
+                <h1>Google Maps and Disputed Territory</h1>
+                <p>How digital cartography impacts physical borders.</p>
+                <div class="btn-group">
+                    <button class="btn btn-action" onclick="showLesson(4)">Previous</button>
+                    <button class="btn btn-next" onclick="markComplete(5)">Mark Complete & Next</button>
+                </div>
+            </div>
+            <!-- ============================================== -->
+            <!-- LESSON 6: REVIEW ASSIGNMENT                    -->
+            <!-- ============================================== -->
+            <div class="content-section" id="lesson-6">
+                <h1>Module 1 & 2 Review</h1>
+
+                <!-- This "lesson-card" wrapper is the secret to making the button perfect! -->
+                <div class="lesson-card">
+                    <h2>Module Assessment</h2>
+                    <p>Complete the Google Form below to test your knowledge.</p>
+
+                    <!-- The button must sit INSIDE the lesson-card div -->
+                    <a href="https://forms.google.com" target="_blank" class="btn btn-action">Open Assignment</a>
+                </div>
+
+                <!-- The Previous/Next buttons sit strictly OUTSIDE the lesson card -->
+                <div class="btn-group">
+                    <button class="btn btn-prev" onclick="showLesson(5)">Previous</button>
+                    <button class="btn btn-next" onclick="markComplete(6)">Finish Course</button>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
