@@ -3,12 +3,13 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>Computing Ethics Course</title>
+<title>Computing Ethics Course</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -23,12 +24,16 @@
     </div>
 
     <div class="search-box">
-        <input type="text" placeholder="Search modules...">
+
+        <input
+        type="text"
+        placeholder="Search modules...">
+
     </div>
 
 </nav>
 
-<!-- MAIN CONTAINER -->
+<!-- MAIN -->
 
 <div class="container">
 
@@ -38,21 +43,34 @@
 
         <h2>Course Modules</h2>
 
-        <a href="modules/module1.html">
-            Module 1 — Social Media
-        </a>
+        <div class="lesson-list">
 
-        <a href="modules/module2.html">
-            Module 2 — Privacy
-        </a>
+            <a href="modules/module1.html"
+            class="lesson-item">
 
-        <a href="modules/module3.html">
-            Module 3 — Security
-        </a>
+                Module 1 — Social Media
+
+            </a>
+
+            <a href="modules/module2.html"
+            class="lesson-item">
+
+                Module 2 — Privacy
+
+            </a>
+
+            <a href="modules/module3.html"
+            class="lesson-item">
+
+                Module 3 — Security
+
+            </a>
+
+        </div>
 
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENT -->
 
     <main class="content">
 
@@ -65,9 +83,11 @@
             </h1>
 
             <p>
-                Learn about social media influence, misinformation,
-                privacy, cyber security, ethical hacking,
-                and modern ethical challenges in computing.
+                Learn about social media,
+                misinformation,
+                privacy,
+                cyber security,
+                and ethical hacking.
             </p>
 
         </section>
@@ -78,54 +98,75 @@
 
             <h2>Course Progress</h2>
 
-            <progress value="20" max="100"></progress>
+            <progress
+            id="courseProgress"
+            value="0"
+            max="100">
 
-            <p style="margin-top:10px;">
-                20% Completed
+            </progress>
+
+            <p id="progressText"
+            style="margin-top:10px;">
+
+                0% Completed
+
             </p>
 
         </div>
 
-        <!-- MODULES -->
+        <!-- MODULE 1 -->
 
         <div class="module-card">
 
-            <h3>Module 1</h3>
+            <h2>Module 1</h2>
 
             <p>
                 Social Media Impact on Youth
             </p>
 
-            <a class="btn" href="modules/module1.html">
+            <a class="btn"
+            href="modules/module1.html">
+
                 Open Module
+
             </a>
 
         </div>
 
+        <!-- MODULE 2 -->
+
         <div class="module-card">
 
-            <h3>Module 2</h3>
+            <h2>Module 2</h2>
 
             <p>
-                Computer Privacy and Data Laws
+                Computer Privacy
             </p>
 
-            <a class="btn" href="modules/module2.html">
+            <a class="btn"
+            href="modules/module2.html">
+
                 Open Module
+
             </a>
 
         </div>
 
+        <!-- MODULE 3 -->
+
         <div class="module-card">
 
-            <h3>Module 3</h3>
+            <h2>Module 3</h2>
 
             <p>
-                Computer Security and Ethical Hacking
+                Computer Security
             </p>
 
-            <a class="btn" href="modules/module3.html">
+            <a class="btn"
+            href="modules/module3.html">
+
                 Open Module
+
             </a>
 
         </div>
@@ -133,6 +174,8 @@
     </main>
 
 </div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
