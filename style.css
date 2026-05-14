@@ -1,246 +1,312 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ================================ */
+/* 1. GLOBAL VARIABLES & RESET      */
+/* ================================ */
+:root {
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --sidebar-bg: #0b1220;
+    --border: #334155;
+    --primary: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    
+    /* Strict dimensions to prevent overlap */
+    --nav-height: 70px;
+    --sidebar-width: 320px;
 }
 
-body{
-    font-family:'Inter',sans-serif;
-    background:#0f172a;
-    color:white;
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
 }
 
-/* NAVBAR */
-
-.navbar{
-    height:70px;
-    background:#111827;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 30px;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    border-bottom:1px solid #1e293b;
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    overflow-x: hidden;
 }
 
-.logo{
-    font-size:24px;
-    font-weight:700;
+/* ================================ */
+/* 2. PREMIUM EYE-CATCHING NAVBAR   */
+/* ================================ */
+.navbar {
+    height: var(--nav-height);
+    background: rgba(11, 18, 32, 0.7); /* Transparent for glass effect */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    z-index: 1000;
 }
 
-.search-box input{
-    width:250px;
-    padding:10px 15px;
-    border:none;
-    border-radius:10px;
-    background:#1e293b;
-    color:white;
-    outline:none;
+.nav-left { display: flex; align-items: center; gap: 12px; }
+
+.nav-logo-icon { 
+    background: linear-gradient(135deg, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    filter: drop-shadow(0 2px 4px rgba(168, 85, 247, 0.4));
 }
 
-/* MAIN LAYOUT */
-
-.container{
-    display:flex;
+.home-link { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 800; 
+    font-size: 1.25rem; 
+    letter-spacing: 0.5px;
 }
 
-/* SIDEBAR */
+.nav-right { display: flex; align-items: center; gap: 25px; }
 
-.sidebar{
-    width:280px;
-    min-height:100vh;
-    background:#111827;
-    padding:25px;
-    position:fixed;
-    top:70px;
-    left:0;
-    overflow-y:auto;
-    border-right:1px solid #1e293b;
+.nav-progress-group { 
+    display: flex; align-items: center; gap: 12px; 
+    background: rgba(255, 255, 255, 0.03); 
+    padding: 8px 18px; 
+    border-radius: 30px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
 }
 
-.sidebar h2{
-    margin-bottom:20px;
+.progress-label { 
+    font-size: 11px; color: var(--text-dim); font-weight: 700; 
+    text-transform: uppercase; letter-spacing: 1px; 
 }
 
-.lesson-list{
-    margin-top:20px;
+.mini-progress-container { 
+    width: 120px; height: 8px; background: rgba(0,0,0,0.5); 
+    border-radius: 10px; overflow: hidden; 
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); 
 }
 
-.section-title{
-    color:#94a3b8;
-    font-size:14px;
-    margin-top:25px;
-    margin-bottom:10px;
-    text-transform:uppercase;
+.mini-progress-bar { 
+    height: 100%; width: 0%; 
+    background: linear-gradient(90deg, #3b82f6, #60a5fa); 
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6); 
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+    border-radius: 10px; 
 }
 
-.lesson-item{
-    display:block;
-    text-decoration:none;
-    color:white;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:10px;
-    background:#1e293b;
-    transition:0.3s;
+.progress-text-glow { 
+    font-weight: 700; color: #60a5fa; font-size: 14px;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.4); 
 }
 
-.lesson-item:hover{
-    background:#334155;
-    transform:translateX(5px);
+.user-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: white; font-size: 18px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
 }
 
-.active-lesson{
-    background:#2563eb;
+/* ================================ */
+/* 3. MAIN LAYOUT & SIDEBAR         */
+/* ================================ */
+.container {
+    display: flex;
+    margin-top: var(--nav-height); /* Pushes content below navbar */
+    min-height: calc(100vh - var(--nav-height));
 }
 
-/* CONTENT */
-
-.content{
-    margin-left:280px;
-    padding:40px;
-    width:100%;
+.sidebar {
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    padding: 25px 20px;
+    border-right: 1px solid var(--border);
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    height: calc(100vh - var(--nav-height));
+    overflow-y: auto;
 }
 
-/* HERO */
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
 
-.hero{
-    margin-bottom:40px;
+.module-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin: 30px 0 20px 0; }
+.module-header { font-size: 13px; font-weight: 700; color: var(--primary); margin: 0 0 10px 5px; text-transform: uppercase; letter-spacing: 1px; }
+
+.section-title {
+    color: var(--text-dim); font-size: 11px; text-transform: uppercase;
+    margin: 15px 0 8px 15px; letter-spacing: 1px; font-weight: 600;
 }
 
-.hero h1{
-    font-size:42px;
-    margin-bottom:15px;
+.sidebar-item {
+    display: flex; align-items: center; width: 100%; text-align: left;
+    padding: 12px 16px; background: transparent; border: 1px solid transparent;
+    color: var(--text-dim); cursor: pointer; border-radius: 10px;
+    transition: all 0.2s ease; margin-bottom: 4px; font-size: 14px; font-weight: 500;
 }
 
-.hero p{
-    color:#cbd5e1;
-    line-height:1.7;
+.sidebar-item-icon { margin-right: 12px; font-size: 16px; }
+.sidebar-item-title { flex: 1; line-height: 1.4; }
+
+.sidebar-item:hover { background: rgba(255, 255, 255, 0.05); color: white; transform: translateX(4px); }
+.active-sidebar { background: rgba(59, 130, 246, 0.15) !important; border: 1px solid var(--primary); color: var(--primary) !important; }
+.completed-lesson { color: var(--text-main); }
+.completed-lesson .sidebar-item-title::after { content: ' ✓'; color: var(--success); font-weight: bold; margin-left: 5px; }
+
+/* ================================ */
+/* 4. COURSE CONTENT AREA           */
+/* ================================ */
+
+
+.content {
+    flex: 1;
+    margin-left: var(--sidebar-width); /* Prevents overlapping */
+    padding: 40px 60px;
+    max-width: 1200px;
 }
 
-/* CARDS */
+.content-section {
+    display: none; 
+    animation: fadeIn 0.4s ease forwards;
+    background: var(--sidebar-bg); border: 1px solid var(--border);
+    padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.content-section.active { display: block; }
 
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:18px;
-    margin-bottom:25px;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.card h2{
-    margin-bottom:18px;
+h1 { font-size: 28px; margin-bottom: 25px; color: white; }
+
+.video-container { width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 16/9; margin-bottom: 30px; background: #000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.video-container iframe { width: 100%; height: 100%; border: none; }
+
+/* Lesson Cards (For Readings & Assignments) */
+.lesson-card { 
+    background: var(--bg); border: 1px solid var(--border); padding: 30px; 
+    border-radius: 12px; margin-bottom: 30px; 
+    display: flex; flex-direction: column; align-items: flex-start;
+}
+.lesson-card h2 { font-size: 18px; margin-bottom: 10px; color: var(--primary); }
+.lesson-card p { color: var(--text-dim); margin-bottom: 20px; line-height: 1.6; }
+
+/* ================================ */
+/* 5. PERFECT BUTTONS               */
+/* ================================ */
+.btn-group {
+    display: flex; gap: 15px; margin-top: 30px; padding-top: 25px;
+    border-top: 1px solid var(--border); align-items: center;
 }
 
-/* VIDEO */
-
-.video-container{
-    position:relative;
-    width:100%;
-    padding-bottom:56.25%;
-    overflow:hidden;
-    border-radius:15px;
-    margin-top:20px;
+.btn {
+    padding: 12px 26px; border-radius: 8px; border: none; cursor: pointer;
+    font-weight: 600; transition: all 0.2s ease; font-size: 15px; text-decoration: none;
 }
 
-.video-container iframe{
-    position:absolute;
-    width:100%;
-    height:100%;
-    border:none;
+.btn-action { background: var(--primary); color: white; display: inline-block; text-align: center; }
+.btn-action:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+
+.btn-next { background: var(--success); color: white; }
+.btn-next:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+
+.btn-prev { background: var(--border); color: white; }
+.btn-prev:hover { background: #475569; transform: translateY(-2px); }
+
+.btn-restart { background: transparent; color: var(--danger); border: 1px solid var(--danger); width: 100%; margin-top: 30px; }
+.btn-restart:hover { background: var(--danger); color: white; }
+
+/* ================================ */
+/* 6. HOMEPAGE & WELCOME BADGE      */
+/* ================================ */
+.homepage { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--bg); }
+.hero-content { background: var(--card-bg); padding: 50px 40px; border-radius: 20px; border: 1px solid var(--border); max-width: 450px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
+.hero-content h1 { font-size: 26px; margin-bottom: 5px; }
+
+.welcome-badge {
+    display: inline-block; background: rgba(59, 130, 246, 0.1); 
+    border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa; 
+    padding: 8px 20px; border-radius: 30px; font-size: 14px; 
+    font-weight: 600; margin-bottom: 25px; 
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.15); animation: fadeIn 0.5s ease forwards;
+}
+.welcome-badge .highlight-name { color: white; font-weight: 700; }
+
+.circular-progress { width: 140px; height: 140px; border-radius: 50%; margin: 30px auto; display: flex; align-items: center; justify-content: center; position: relative; background: conic-gradient(var(--primary) 0deg, var(--bg) 0deg); }
+.circular-progress::before { content: ""; position: absolute; width: 110px; height: 110px; background: var(--card-bg); border-radius: 50%; }
+.circular-progress span { position: relative; font-weight: 700; font-size: 24px; color: white; }
+
+.student-box input { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: white; margin-bottom: 25px; font-family: inherit; font-size: 15px; }
+.student-box input:focus { outline: none; border-color: var(--primary); }
+
+/* ================================ */
+/* 7. CERTIFICATE PAGE STYLES       */
+/* ================================ */
+.certificate-page {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; background: var(--bg); padding: 40px;
 }
 
-/* BUTTONS */
-
-.btn{
-    display:inline-block;
-    margin-top:15px;
-    padding:12px 20px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    transition:0.3s;
+.certificate-card {
+    background: var(--card-bg); border: 2px solid #eab308; 
+    padding: 60px 80px; border-radius: 16px; text-align: center;
+    max-width: 800px; width: 100%; position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 10px var(--bg);
+    background-image: radial-gradient(circle at center, rgba(234, 179, 8, 0.05) 0%, transparent 70%);
 }
 
-.btn:hover{
-    background:#1d4ed8;
-    transform:translateY(-2px);
+.cert-logo { font-size: 50px; margin-bottom: 10px; }
+.cert-title { font-size: 40px; color: #eab308; margin-bottom: 10px; font-family: 'Georgia', serif; letter-spacing: 1px; }
+.cert-subtitle { font-size: 14px; color: var(--text-dim); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px; }
+.cert-name { 
+    font-size: 48px; font-weight: 700; color: white; margin-bottom: 30px; 
+    border-bottom: 2px solid var(--border); padding-bottom: 10px; 
+    display: inline-block; min-width: 400px; font-family: 'Georgia', serif; font-style: italic;
 }
+.cert-course { font-size: 24px; color: var(--primary); font-weight: 600; margin-bottom: 50px; }
 
-/* PROGRESS */
-
-.progress-card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
-    margin-bottom:25px;
+.cert-footer { 
+    display: flex; justify-content: space-between; margin-top: 40px; 
+    border-top: 1px solid var(--border); padding-top: 20px; 
+    color: var(--text-dim); font-size: 15px; 
+    width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;
 }
+.cert-signature { text-align: left; }
+.cert-date { text-align: right; }
+.print-btn-container { margin-top: 40px; display: flex; gap: 20px; }
 
-progress{
-    width:100%;
-    height:20px;
-    margin-top:15px;
-}
-
-/* MODULE CARD */
-
-.module-card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:18px;
-    margin-bottom:20px;
-    transition:0.3s;
-}
-
-.module-card:hover{
-    transform:translateY(-5px);
-}
-
-/* NAVIGATION */
-
-.navigation-buttons{
-    display:flex;
-    justify-content:space-between;
-    margin-top:40px;
-}
-
-/* LIST */
-
-ul{
-    padding-left:20px;
-}
-
-li{
-    margin-bottom:12px;
-}
-
-/* LINKS */
-
-a{
-    color:#60a5fa;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .sidebar{
-        display:none;
+/* 🖨️ PERFECT PRINT/PDF STYLING (NO OUTSIDE BACKGROUND) */
+@media print {
+    @page { margin: 0; size: landscape; }
+    
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
-    .content{
-        margin-left:0;
+    html, body, .certificate-page { 
+        background: white !important; padding: 0 !important; margin: 0 !important; 
+    }
+    
+    .certificate-card { 
+        background-color: var(--card-bg) !important;
+        background-image: radial-gradient(circle at center, rgba(234, 179, 8, 0.05) 0%, transparent 70%) !important;
+        width: 100vw !important; height: 100vh !important; max-width: none !important; 
+        border: 20px solid #eab308 !important; border-radius: 0 !important; 
+        box-shadow: none !important; margin: 0 !important; box-sizing: border-box !important;
+        display: flex !important; flex-direction: column !important; 
+        justify-content: center !important; align-items: center !important;
     }
 
-    .hero h1{
-        font-size:30px;
-    }
-
-    .search-box input{
-        width:150px;
-    }
+    .print-btn-container { display: none !important; }
 }
