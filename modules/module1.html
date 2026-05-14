@@ -2,80 +2,189 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Module 1</title>
 
     <link rel="stylesheet" href="../style.css">
+
 </head>
 
 <body>
 
-<div class="content">
+<!-- NAVBAR -->
 
-    <h1>Social Media Impact on Youth</h1>
+<nav class="navbar">
 
-    <div class="card">
-
-        <h2>Video Lecture Part 1</h2>
-
-        <iframe width="900" height="500"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-        allowfullscreen>
-        </iframe>
-
-        <p>Duration: 12 minutes</p>
-
+    <div class="logo">
+        Module 1
     </div>
 
-    <div class="card">
+</nav>
 
-        <h2>Video Lecture Part 2</h2>
+<div class="container">
 
-        <iframe width="900" height="500"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-        allowfullscreen>
-        </iframe>
+    <!-- SIDEBAR -->
 
-        <p>Duration: 18 minutes</p>
+    <aside class="sidebar">
 
-    </div>
+        <h2>Modules</h2>
 
-    <div class="card">
+        <a href="../index.html">Home</a>
 
-        <h2>Reading Materials</h2>
-
-        <ul>
-
-            <li>
-                <a href="https://example.com" target="_blank">
-                    Social Media Negative Impact
-                </a>
-            </li>
-
-            <li>
-                <a href="https://example.com" target="_blank">
-                    Youth Mental Health
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-    <div class="card">
-
-        <h2>Assignment</h2>
-
-        <p>
-            Write 300 words about the impact of social media
-            on youth mental health.
-        </p>
-
-        <a href="https://forms.google.com" target="_blank">
-            Submit Assignment
+        <a href="module1.html">
+            Social Media Impact
         </a>
 
-    </div>
+        <a href="module2.html">
+            Computer Privacy
+        </a>
+
+        <a href="module3.html">
+            Computer Security
+        </a>
+
+    </aside>
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+        <section class="hero">
+
+            <h1>Social Media Impact on Youth</h1>
+
+            <p>
+                Explore the effects of social media
+                on mental health, misinformation,
+                and society.
+            </p>
+
+        </section>
+
+        <!-- VIDEO 1 -->
+
+        <div class="card">
+
+            <h2>Video Lecture Part 1</h2>
+
+            <div class="video-container">
+
+                <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <p style="margin-top:15px;">
+                Duration: 12 minutes
+            </p>
+
+            <div class="checkbox">
+
+                <label>
+                    <input type="checkbox">
+                    Mark as Completed
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- VIDEO 2 -->
+
+        <div class="card">
+
+            <h2>Video Lecture Part 2</h2>
+
+            <div class="video-container">
+
+                <iframe
+                src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <p style="margin-top:15px;">
+                Duration: 18 minutes
+            </p>
+
+            <div class="checkbox">
+
+                <label>
+                    <input type="checkbox">
+                    Mark as Completed
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- READING -->
+
+        <div class="card">
+
+            <h2>Reading Materials</h2>
+
+            <ul>
+
+                <li>
+                    <a href="https://example.com" target="_blank">
+                        Social Media's Negative Impact on Teen Health
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://example.com" target="_blank">
+                        Misinformation and Society
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- ASSIGNMENT -->
+
+        <div class="card">
+
+            <h2>Assignment</h2>
+
+            <p>
+                Write a short report discussing
+                how misinformation spreads through
+                social media platforms.
+            </p>
+
+            <a class="btn"
+            href="https://forms.google.com"
+            target="_blank">
+
+                Submit Assignment
+
+            </a>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <div class="navigation-buttons">
+
+            <a class="btn" href="../index.html">
+                ← Home
+            </a>
+
+            <a class="btn" href="module2.html">
+                Next Module →
+            </a>
+
+        </div>
+
+    </main>
 
 </div>
 
