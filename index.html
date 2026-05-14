@@ -1,181 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Computing Ethics Course</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <title>Computing Ethics</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <section class="homepage">
+        <div class="hero-content">
+            <h1>Ethics & Society</h1>
+            
+            <!-- Dynamic Welcome Badge -->
+            <div id="welcomeText" class="welcome-badge">Welcome</div>
+            
+            <div class="circular-progress" id="mainCircle">
+                <span id="progressValue">0%</span>
+            </div>
 
-<!-- NAVBAR -->
+            <!-- Name Input -->
+            <div class="student-box" id="studentBox">
+                <input type="text" id="studentName" placeholder="Enter your full name">
+            </div>
 
-<nav class="navbar">
-
-    <div class="logo">
-        Computing Ethics
-    </div>
-
-    <div class="search-box">
-
-        <input
-        type="text"
-        placeholder="Search modules...">
-
-    </div>
-
-</nav>
-
-<!-- MAIN -->
-
-<div class="container">
-
-    <!-- SIDEBAR -->
-
-    <aside class="sidebar">
-
-        <h2>Course Modules</h2>
-
-        <div class="lesson-list">
-
-            <a href="modules/module1.html"
-            class="lesson-item">
-
-                Module 1 — Social Media
-
-            </a>
-
-            <a href="modules/module2.html"
-            class="lesson-item">
-
-                Module 2 — Privacy
-
-            </a>
-
-            <a href="modules/module3.html"
-            class="lesson-item">
-
-                Module 3 — Security
-
-            </a>
-
+            <!-- Buttons -->
+            <button class="btn btn-next" id="startBtn" onclick="startCourse()" style="width: 100%;">Start Course</button>
+            <button class="btn btn-restart" onclick="clearProgress()" style="margin-top: 15px; width: 100%; border: none;">Restart Course</button>
         </div>
-
-    </aside>
-
-    <!-- CONTENT -->
-
-    <main class="content">
-
-        <!-- HERO -->
-
-        <section class="hero">
-
-            <h1>
-                Computing, Ethics, and Society Foundations
-            </h1>
-
-            <p>
-                Learn about social media,
-                misinformation,
-                privacy,
-                cyber security,
-                and ethical hacking.
-            </p>
-
-        </section>
-
-        <!-- PROGRESS -->
-
-        <div class="progress-card">
-
-            <h2>Course Progress</h2>
-
-            <progress
-            id="courseProgress"
-            value="0"
-            max="100">
-
-            </progress>
-
-            <p id="progressText"
-            style="margin-top:10px;">
-
-                0% Completed
-
-            </p>
-
-        </div>
-
-        <!-- MODULE 1 -->
-
-        <div class="module-card">
-
-            <h2>Module 1</h2>
-
-            <p>
-                Social Media Impact on Youth
-            </p>
-
-            <a class="btn"
-            href="modules/module1.html">
-
-                Open Module
-
-            </a>
-
-        </div>
-
-        <!-- MODULE 2 -->
-
-        <div class="module-card">
-
-            <h2>Module 2</h2>
-
-            <p>
-                Computer Privacy
-            </p>
-
-            <a class="btn"
-            href="modules/module2.html">
-
-                Open Module
-
-            </a>
-
-        </div>
-
-        <!-- MODULE 3 -->
-
-        <div class="module-card">
-
-            <h2>Module 3</h2>
-
-            <p>
-                Computer Security
-            </p>
-
-            <a class="btn"
-            href="modules/module3.html">
-
-                Open Module
-
-            </a>
-
-        </div>
-
-    </main>
-
-</div>
-
-<script src="script.js"></script>
-
+    </section>
+    
+    <script src="script.js"></script>
 </body>
 </html>
