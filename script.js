@@ -42,15 +42,27 @@ function clearProgress() {
     }
 }
 
+
 function showLesson(id) {
     currentLessonId = id;
     localStorage.setItem('currentLesson', currentLessonId);
 
+    // ==========================================
+    // 🛑 NEW FIX: STOP ALL BACKGROUND VIDEOS
+    // ==========================================
+    document.querySelectorAll('.content-section iframe').forEach(iframe => {
+        let currentSrc = iframe.src;
+        iframe.src = currentSrc; // Resetting the source stops the video instantly
+    });
+
+    // 1. Hide all sections
     document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
     
+    // 2. Show the target section
     const targetSection = document.getElementById(`lesson-${id}`);
     if (targetSection) targetSection.classList.add('active');
 
+    // 3. Update the UI
     updateUI();
 }
 
